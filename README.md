@@ -160,7 +160,7 @@ Depois de instalar as biblioteca, já é possível fazer requisições GET, no e
 
 Ao rodar o projeto pelo arquivo `main.py` se deparará com uma planilha atualizada com a situação de cada aluno e a Nota para Aprovação final:
 
-- Para rodar o projeto, abra a pasta do projeto e digite ni terminal `py main.py`
+- Para rodar o projeto, abra a pasta do projeto e digite no terminal `py main.py`
 
 <div style="display: flex; justify-content: center;">
     <img src="./img/final-spreadsheet.png" alt="Imagem" height="400" style="">
