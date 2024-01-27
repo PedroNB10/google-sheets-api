@@ -174,6 +174,6 @@ Para saber mais sobre como funcionam as bibliotecas sugiro a leitura:
 
 ### Melhorias do Projeto
 
-Depois de realizar uma pesquisa e de pedir opiniões de amigos devs percebi que poderia refatorar o código e seguir algumas das "Design Patterns" que facilitam a escalabilidade do projeto, assim utilizei a Strategy Pattern para encapsular o algorítmo para calcular a média de cada aluno e retornar sua situação em caso de reprovação por falta ou por nota. Além dessa, foi utilizada a Facade Pattern para simplificar o uso das dependências da api do google sheets, tornando a mais fácil de usar. 
+Depois de realizar uma pesquisa, percebi que poderia refatorar o código e seguir algumas das "Design Patterns" que facilitam a escalabilidade do projeto, assim utilizei a Strategy Pattern para encapsular o algorítmo para calcular a média de cada aluno e retornar sua situação em caso de reprovação por falta ou por nota. Além dessa, foi utilizada a Facade Pattern para simplificar o uso das dependências da api do google sheets, tornando a mais fácil de usar. 
 
-Para demonstração do código sem essas design patterns, é possível mudar a branch main para `project-without-design-patterns`, assim poderá ver a evolução após essa implementação. 
+Para demonstração do código sem essas design patterns, é possível mudar a branch `main` para `project-without-design-patterns`, assim poderá ver a evolução após essa implementação. 
