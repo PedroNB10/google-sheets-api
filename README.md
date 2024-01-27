@@ -1,5 +1,14 @@
 # Exemplo de Uso da API do Google Sheets
 
+## Índice
+
+  - [Introdução](#introdução)
+  - [Exemplo Utilizado](#exemplo-utilizado)
+  - [Configuração e Instalação](#configuração-e-instalação)
+  - [Rodando o Pojeto](#9-rodando-o-projeto)
+  - [Observações](#observações)
+  - [Melhorias do Projeto](#melhorias-do-projeto)
+
 ## Introdução
 
 O projeto é basicamente uma automação de uma planilha do google sheets com intuito de atualizar as situações dos alunos em uma escola calculando automaticamente suas médias, porcentagem de faltas e classificando a situação que estejam, sejam elas: Reprovado por Nota, Exame Final, Aprovado ou Reprovado por faltas. Os métodos utilizados no projeto são de escrita e leitura de dados da planilha.
@@ -162,3 +171,9 @@ Para saber mais sobre como funcionam as bibliotecas sugiro a leitura:
 - [Documentação pandas](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
 - [Documentação gspread](https://docs.gspread.org/en/latest/user-guide.html#updating-cells)
 - [Documentação math](https://docs.python.org/3/library/math.html)
+
+### Melhorias do Projeto
+
+Depois de realizar uma pesquisa e de pedir opiniões de amigos devs percebi que poderia refatorar o código e seguir algumas das "Design Patterns" que facilitam a escalabilidade do projeto, assim utilizei a Strategy Pattern para encapsular o algorítmo para calcular a média de cada aluno e retornar sua situação em caso de reprovação por falta ou por nota. Além dessa, foi utilizada a Facade Pattern para simplificar o uso das dependências da api do google sheets, tornando a mais fácil de usar. 
+
+Para demonstração do código sem essas design patterns, é possível mudar a branch main para `project-without-design-patterns`, assim poderá ver a evolução após essa implementação. 
