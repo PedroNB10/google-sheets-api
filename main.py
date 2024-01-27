@@ -3,11 +3,11 @@ import gspread
 import os
 import math
 
-SHEET_NAME = "engenharia_de_software"
+
 SPREAD_SHEET_ID = "1TZwVaYCUX_JtLQWNzr-PXib2xQZKzltdCejzr8io4k0"
 WORKSHEET_NAME = "engenharia_de_software"
 
-URL = f"https://docs.google.com/spreadsheets/d/{SPREAD_SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}"
+URL = f"https://docs.google.com/spreadsheets/d/{SPREAD_SHEET_ID}/gviz/tq?tqx=out:csv&sheet={WORKSHEET_NAME}"
 
 # Set the path to your service account JSON file
 json_keyfile_path = r'C:\Users\pedro\AppData\gspread\service_account.json'
