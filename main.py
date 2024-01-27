@@ -2,19 +2,24 @@ import pandas as pd
 import gspread
 import os
 import math
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load environment variables from .env file
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+envars = current_dir / ".env"
+load_dotenv(envars)
 
 
-SPREAD_SHEET_ID = "1TZwVaYCUX_JtLQWNzr-PXib2xQZKzltdCejzr8io4k0"
-WORKSHEET_NAME = "engenharia_de_software"
+SPREAD_SHEET_ID = os.getenv("SPREAD_SHEET_ID")
+WORKSHEET_NAME = os.getenv("WORKSHEET_NAME")
+JSON_KEY_PATH = os.getenv("JSON_KEY_PATH").replace('\\', '/') # turn the string to a raw string
+
 
 URL = f"https://docs.google.com/spreadsheets/d/{SPREAD_SHEET_ID}/gviz/tq?tqx=out:csv&sheet={WORKSHEET_NAME}"
 
-# Set the path to your service account JSON file
-json_keyfile_path = r'C:\Users\pedro\OneDrive\Documentos\GitReps\google-sheets-api\service_account.json'
-
-
 # Set the environment variable
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = json_keyfile_path
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = JSON_KEY_PATH
 
 
 
@@ -39,7 +44,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame):
             
     # Authenticate using the signed key
     gc = gspread.service_account(
-        filename=json_keyfile_path)
+        filename=JSON_KEY_PATH)
 
     # Open the Google Sheets document
     sh = gc.open_by_key(spread_sheet_id)
@@ -102,6 +107,8 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame):
 
 
 if __name__ == "__main__":
+
     data_frame = get_column_data_from_sheets()
+    print(data_frame)
     update_google_sheets(SPREAD_SHEET_ID, WORKSHEET_NAME, data_frame)
     
