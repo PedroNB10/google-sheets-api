@@ -3,14 +3,14 @@ import gspread
 import os
 import math
 
-SHEET_NAME = "engenharia_de_software"
+
 SPREAD_SHEET_ID = "1TZwVaYCUX_JtLQWNzr-PXib2xQZKzltdCejzr8io4k0"
 WORKSHEET_NAME = "engenharia_de_software"
 
-URL = f"https://docs.google.com/spreadsheets/d/{SPREAD_SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}"
+URL = f"https://docs.google.com/spreadsheets/d/{SPREAD_SHEET_ID}/gviz/tq?tqx=out:csv&sheet={WORKSHEET_NAME}"
 
 # Set the path to your service account JSON file
-json_keyfile_path = r'C:\Users\pedro\AppData\gspread\service_account.json'
+json_keyfile_path = r'C:\Users\pedro\OneDrive\Documentos\GitReps\google-sheets-api\service_account.json'
 
 
 # Set the environment variable
@@ -39,7 +39,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame):
             
     # Authenticate using the signed key
     gc = gspread.service_account(
-        filename=r'C:\Users\pedro\OneDrive\Documentos\GitReps\google-sheets-api\service_account.json')
+        filename=json_keyfile_path)
 
     # Open the Google Sheets document
     sh = gc.open_by_key(spread_sheet_id)
