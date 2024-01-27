@@ -38,7 +38,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_c
     attendance_strategy = AttendanceEvaluation()
     grade_strategy = GradeEvaluation()
 
-    # Lists to store hte situation and the grades of each student
+    # Lists to store the situation and the grades of each student
     situation_list = []
     grade_to_pass_list = []
 
@@ -46,7 +46,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_c
         missed_classes = data_frame['Faltas'][i]
         average = (data_frame['P1'][i] + data_frame['P2'][i] + data_frame['P3'][i]) / 3
 
-        # Attendence Evaluation
+        # Attendance Evaluation
         situation, grade = attendance_strategy.evaluate(missed_classes, total_of_classes_in_semester)
         if situation:
             situation_list.append(situation)
