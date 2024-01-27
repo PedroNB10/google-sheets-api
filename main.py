@@ -28,17 +28,17 @@ def get_column_data_from_sheets():
 
 
 def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_classes_in_semester):
-    # Crie uma instância da Facade
+    # Create an instance of Facade
     sheets_facade = GoogleSheetsFacade(spread_sheet_id, worksheet_name, JSON_KEY_PATH)
 
-    # Obtenha a planilha
+    # get the google spreadsheets
     worksheet = sheets_facade.open_worksheet()
 
-    # Inicialize as estratégias
+    # Initialize the strategies
     attendance_strategy = AttendanceEvaluation()
     grade_strategy = GradeEvaluation()
 
-    # Lista para armazenar situações e notas
+    # Lists to store hte situation and the grades of each student
     situation_list = []
     grade_to_pass_list = []
 
@@ -46,7 +46,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_c
         missed_classes = data_frame['Faltas'][i]
         average = (data_frame['P1'][i] + data_frame['P2'][i] + data_frame['P3'][i]) / 3
 
-        # Avaliação de Frequência
+        # Attendence Evaluation
         situation, grade = attendance_strategy.evaluate(missed_classes, total_of_classes_in_semester)
         if situation:
             situation_list.append(situation)
@@ -61,7 +61,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_c
         
         
 
-        # Avaliação de Notas
+        # Grade Evaluation
         situation, grade = grade_strategy.evaluate(average)
         
         
@@ -77,7 +77,7 @@ def update_google_sheets(spread_sheet_id, worksheet_name, data_frame, total_of_c
         print(f"Nota para passar: {grade_to_pass_list[i]}")
         print(f"------------------------------------")
 
-    # Atualize as folhas do Google
+    # Update Google Sheets
     sheets_facade.update_sheets(worksheet, situation_list, grade_to_pass_list)
 
 
